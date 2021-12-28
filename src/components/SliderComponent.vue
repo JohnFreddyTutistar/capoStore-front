@@ -1,107 +1,22 @@
 <template>
   <section class="slider-area">
     <div class="slider-active slick-initialized slick-slider">
-      <button class="slick-prev slick-arrow" id="first-slider-prev">
+      <button class="slick-prev slick-arrow" @click="prev">
         <i class="fa fa-chevron-left"></i>
       </button>
-      <div class="slick-list draggable">
-        <div class="slick-track owl-carousel owl-theme">
-          <div
-            class="
-              single-slider
-              slider-bg1 slider-height
-              d-flex
-              align-items-center
-              slick-slide
-            "
-          >
-            <div class="container">
-              <div class="rowr">
-                <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-sm-10">
-                  <div class="hero-caption text-center">
-                    <span>Fashion Sale</span>
-                    <h1
-                      data-animation="bounceIn"
-                      data-delay="0.2s"
-                      class
-                      style="animation-delay: 0.2s"
-                    >
-                      Minimal Menz Style
-                    </h1>
-                    <p
-                      data-animation="fadeInUp"
-                      data-delay="0.4s"
-                      class=""
-                      style="animation-delay: 0.4s"
-                    >
-                      Consectetur adipisicing elit. Laborum fuga incidunt
-                      laboriosam voluptas iure, delectus dignissimos facilis
-                      neque nulla earum.
-                    </p>
-                    <a
-                      href="#"
-                      class="btn_1 hero-btn"
-                      data-animation="fadeInUp"
-                      data-delay="0.7s"
-                      tabindex="-1"
-                      style="animation-delay: 0.7s"
-                      >Shop Now</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Slider 2-->
-          <div
-            class="
-              single-slider
-              slider-bg2 slider-height
-              d-flex
-              align-items-center
-              slick-slide
-            "
-          >
-            <div class="container">
-              <div class="rowr">
-                <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-sm-10">
-                  <div class="hero-caption text-center">
-                    <span>Fashion Sale</span>
-                    <h1
-                      data-animation="bounceIn"
-                      data-delay="0.2s"
-                      class
-                      style="animation-delay: 0.2s"
-                    >
-                      Minimal Menz Style
-                    </h1>
-                    <p
-                      data-animation="fadeInUp"
-                      data-delay="0.4s"
-                      class=""
-                      style="animation-delay: 0.4s"
-                    >
-                      Consectetur adipisicing elit. Laborum fuga incidunt
-                      laboriosam voluptas iure, delectus dignissimos facilis
-                      neque nulla earum.
-                    </p>
-                    <a
-                      href="#"
-                      class="btn_1 hero-btn"
-                      data-animation="fadeInUp"
-                      data-delay="0.7s"
-                      tabindex="-1"
-                      style="animation-delay: 0.7s"
-                      >Shop Now</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="slider-container">
+        <div>
+          <single-slider-component
+            v-for="(img, index) in imgs"
+            :key="img"
+            :index="index"
+            :background="img"
+            :visibleSlide="visibleSlide"
+            :direction="direction"
+          />
         </div>
       </div>
-      <button class="slick-next slick-arrow" id="first-slider-next">
+      <button class="slick-next slick-arrow" @click="next">
         <i class="fa fa-chevron-right"></i>
       </button>
     </div>
@@ -109,8 +24,46 @@
 </template>
 
 <script>
+import SingleSliderComponent from "./SingleSlideComponent.vue";
+
 export default {
-    name: 'SliderComponent'
+  name: "SliderComponent",
+  components: {
+    SingleSliderComponent,
+  },
+  data() {
+    return {
+      imgs: [
+        "https://preview.colorlib.com/theme/capitalshop/assets/img/hero/h1_hero1.jpg.webp",
+        "https://preview.colorlib.com/theme/capitalshop/assets/img/hero/h1_hero2.jpg.webp",
+      ],
+      visibleSlide: 0,
+      direction: 'left'
+    };
+  },
+  computed: {
+    slidesLen() {
+      return this.imgs.length
+    }
+  },
+  methods: {
+    next() {
+      if(this.visibleSlide >= this.slidesLen -1) {
+        this.visibleSlide = 0
+      } else {
+        this.visibleSlide++
+      }
+      this.direction = 'right'
+    },
+    prev() {
+      if(this.visibleSlide <= 0) {
+        this.visibleSlide = this.slidesLen -1
+      } else {
+        this.visibleSlide--
+      }
+      this.direction = 'left'
+    }
+  }
 };
 </script>
 
@@ -122,20 +75,6 @@ export default {
 
 .slick-initialized .slick-slide {
   outline: 0;
-}
-
-.slider-bg1 {
-  background-image: url(https://preview.colorlib.com/theme/capitalshop/assets/img/hero/h1_hero1.jpg.webp);
-}
-.slider-bg2 {
-  background-image: url(https://preview.colorlib.com/theme/capitalshop/assets/img/hero/h1_hero2.jpg.webp);
-}
-
-.slider-height {
-  min-height: 700px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
 }
 
 .slider-area .hero-caption {
