@@ -1,5 +1,5 @@
 <template>
-  <transition :name="direction" mode="in-out">
+  <!-- <transition :name="direction" mode="in-out"> -->
     <div
       v-if="visibleSlide === index"
       class="single-slider slider-height d-flex align-items-center"
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-  </transition>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -43,13 +43,6 @@ export default {
 };
 </script>
 <style>
-.single-slider {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
 
 .slider-height {
   min-height: 700px;

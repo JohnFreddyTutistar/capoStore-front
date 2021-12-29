@@ -4,8 +4,8 @@
       <button class="slick-prev slick-arrow" @click="prev">
         <i class="fa fa-chevron-left"></i>
       </button>
-      <div class="slider-container">
-        <div>
+      <div>
+        <div class="slider-container">
           <single-slider-component
             v-for="(img, index) in imgs"
             :key="img"
@@ -71,6 +71,10 @@ export default {
 .slider-area {
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.slider-container {
+  position: relative;
 }
 
 .slick-initialized .slick-slide {
