@@ -40,27 +40,27 @@
                   </ul>
                   <ul class="header-social">
                     <li>
-                      <a href="#">
+                      <a href="#" class="facebook">
                         <i class="fa fa-facebook"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#" class="instagram">
                         <i class="fa fa-instagram"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#" class="twitter">
                         <i class="fa fa-twitter"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#" class="linkedin">
                         <i class="fa fa-linkedin-in"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#" class="youtube">
                         <i class="fa fa-youtube"></i>
                       </a>
                     </li>
@@ -230,6 +230,7 @@ export default {
 </script>
 
 <style>
+
 .header-area .header-top {
   padding: 17px 0;
 }
@@ -273,7 +274,38 @@ export default {
   padding-left: 14px;
 }
 
-.header-area .header-top .header-info-right .header-social li a i {
+.header-area .header-top .header-info-right .header-social .facebook:hover{
+  color: var(--primary);
+  transition: 0.2s;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+}
+
+.header-area .header-top .header-info-right .header-social .instagram:hover{
+  color: #F18805;
+  transition: 0.2s ease-in-out;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+}
+
+.header-area .header-top .header-info-right .header-social .twitter:hover{
+  color: #F18805;
+  transition: 0.2s ease-in-out
+}
+
+.header-area .header-top .header-info-right .header-social .linkedin:hover{
+  color: #F18805;
+  transition: 0.2s ease-in-out
+}
+
+.header-area .header-top .header-info-right .header-social .youtube:hover{
+  color: #F18805;
+  transition: 0.2s ease-in-out
+}
+
+/* .header-area .header-top .header-info-right .header-social li a i {
   -webkit-transition: all 0.4s ease-out 0s;
   -moz-transition: all 0.4s ease-out 0s;
   -ms-transition: all 0.4s ease-out 0s;
@@ -284,7 +316,7 @@ export default {
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
   -o-transform: rotateY(0deg);
-}
+} */
 
 .header-area .header-mid {
   background: var(--white);
@@ -360,11 +392,11 @@ export default {
   color: #292621;
   text-transform: capitalize;
 }
-
+/* styles of main menu */
 .header-area .header-mid .menu-wrapper .main-menu ul li a {
   font-size: 16px;
   font-family: "Jost", sans-serif;
-  color: #141517;
+  color: #000;
   font-weight: 600;
   padding: 34px 21px;
   display: inline-block;
@@ -375,6 +407,9 @@ export default {
   -ms-transition: all 0.3s ease-out 0s;
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
+}
+.header-area .header-mid .menu-wrapper .main-menu ul li a:hover{
+  color: #F18805;
 }
 
 .header-area .header-mid .menu-wrapper .header-right ul {
@@ -396,6 +431,14 @@ export default {
   cursor: pointer;
   padding: 31px 13px;
   font-weight: 400;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+.header-area .header-mid .menu-wrapper .header-right span:hover{
+  color: #F18805;
 }
 
 .header-area .header-mid .menu-wrapper .header-right .cart {
